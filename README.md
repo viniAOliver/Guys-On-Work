@@ -1,3 +1,3 @@
-# guys_on_work
+# Guys On Work
 
-A new Flutter project.
+That project has the main objective to make an application that will make easier the organization of functions of partness in a project.
