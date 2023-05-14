@@ -20,27 +20,47 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _logo(context),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Column(
-                children: [
-                  _emailField(),
-                  _passwordField(),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: _forgotPassword(context),
-                  )
-                ],
+      body: Stack(
+        children: [
+          SizedBox.expand(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.deepPurple.shade400,
+                    Colors.deepPurple.shade900
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
               ),
             ),
-            _loginButton(context),
-          ],
-        ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Spacer(flex: 2),
+              _logo(context),
+              const Spacer(flex: 2),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Column(
+                  children: [
+                    _emailField(),
+                    _passwordField(),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: _forgotPassword(context),
+                    )
+                  ],
+                ),
+              ),
+              const Spacer(flex: 1),
+              _loginButton(context),
+              const Spacer(flex: 2),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -50,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
     return Icon(
       Icons.power_settings_new_rounded,
       size: _generalController.screenHeight(context) * 0.15,
-      color: Colors.deepPurple.shade200,
+      color: Colors.deepPurple.shade100,
     );
   }
 
@@ -60,8 +80,8 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: MyField(
         type: 1,
-        title: "E-mail",
-        subtitle: "Digite seu e-mail",
+        title: "Codename",
+        subtitle: "Type you codename",
         keyboardType: TextInputType.emailAddress,
         controller: _loginController.emailLogin.value,
       ),
@@ -74,8 +94,8 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: MyField(
         type: 1,
-        title: "Senha",
-        subtitle: "Digite sua senha",
+        title: "Password",
+        subtitle: "What's your password?",
         // isPassword: _loginController.visiblePassword.value
         isPassword: true,
         controller: _loginController.passwordLogin.value,
@@ -89,8 +109,8 @@ class _LoginPageState extends State<LoginPage> {
       padding: EdgeInsets.symmetric(
           horizontal: _generalController.screenWidth(context) * 0.15),
       child: MyTextButton(
-        text: 'Esqueceu a senha?',
-        textColor: Colors.deepPurple.shade500,
+        text: 'Forgot you password?',
+        textColor: Colors.deepPurple.shade50,
       ),
     );
   }
@@ -101,10 +121,11 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: MyButton(
         type: 1,
-        text: 'Entrar',
+        text: 'Login',
         icon: Icons.login_rounded,
         buttonColor: Colors.deepPurple.shade600,
         secondColor: Colors.white,
+        onTouch: () => Navigator.of(context).pushNamed(''),
       ),
     );
   }

@@ -47,7 +47,7 @@ class MyField extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: Colors.deepPurple.shade900,
+            color: Colors.deepPurple.shade50,
             width: 1,
           ),
         ),
@@ -57,25 +57,26 @@ class MyField extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             obscureText: isPassword ?? false,
-            cursorColor: Colors.deepPurple.shade700,
+            cursorColor: Colors.deepPurple.shade900,
             keyboardType: keyboardType,
             style: TextStyle(
-              color: Colors.deepPurple.shade900,
+              color: Colors.deepPurple.shade50,
             ),
             decoration: InputDecoration(
               border: const OutlineInputBorder(borderSide: BorderSide.none),
               labelStyle: const TextStyle(
-                color: Colors.deepPurple,
+                color: Colors.white,
                 fontWeight: FontWeight.w500,
                 fontSize: 18,
               ),
               labelText: title,
-              floatingLabelStyle: TextStyle(
-                backgroundColor: Colors.white,
-                fontSize: 20,
-                color: Colors.deepPurple.shade500,
+              floatingLabelStyle: const TextStyle(
+                color: Colors.transparent,
               ),
               hintText: subtitle,
+              hintStyle: TextStyle(
+                color: Colors.deepPurple.shade50,
+              ),
             ),
           ),
         ),
