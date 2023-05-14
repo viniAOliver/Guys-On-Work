@@ -8,6 +8,7 @@ class MyButton extends StatelessWidget {
   final String text;
   final Color? secondColor;
   final IconData? icon;
+  final Function()? onTouch;
 
   MyButton({
     super.key,
@@ -15,7 +16,7 @@ class MyButton extends StatelessWidget {
     this.buttonColor,
     this.secondColor,
     required this.text,
-    this.icon,
+    this.icon, this.onTouch,
   });
 
   final GeneralController _generalController = Get.find<GeneralController>();
@@ -37,7 +38,7 @@ class MyButton extends StatelessWidget {
       height: _generalController.screenHeight(context) * 0.06,
       width: _generalController.screenHeight(context) * 0.15,
       child: ElevatedButton.icon(
-          onPressed: _generalController.loading == null ? null : () {},
+          onPressed: _generalController.loading == null ? null : () {onTouch;},
           style: ElevatedButton.styleFrom(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
