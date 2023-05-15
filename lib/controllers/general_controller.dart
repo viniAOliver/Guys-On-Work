@@ -14,4 +14,8 @@ class GeneralController extends GetxController {
   screenHeight(BuildContext context) {
     return MediaQuery.of(context).size.height;
   }
+
+  defaultSize(BuildContext context) {
+    return MediaQuery.of(context).size;
+  }
 }

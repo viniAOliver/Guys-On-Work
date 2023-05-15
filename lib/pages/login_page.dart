@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:guys_on_work/controllers/general_controller.dart';
 import 'package:guys_on_work/controllers/login_controller.dart';
+import 'package:guys_on_work/themes/dark_theme.dart';
 import 'package:guys_on_work/widgets/buttons_widget.dart';
 import 'package:guys_on_work/widgets/fields_widget.dart';
 import 'package:guys_on_work/widgets/text_buttons_widget.dart';
@@ -22,26 +23,17 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Stack(
         children: [
-          SizedBox.expand(
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.deepPurple.shade400,
-                    Colors.deepPurple.shade900
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-              ),
-            ),
+          Image.asset(
+            'assets/images/defaultBg.png',
+            alignment: Alignment.center,
+            fit: BoxFit.cover,
+            height: _generalController.screenHeight(context),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Spacer(flex: 2),
+              const Spacer(flex: 1),
               _logo(context),
-              const Spacer(flex: 2),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 child: Column(
@@ -67,10 +59,9 @@ class _LoginPageState extends State<LoginPage> {
 
   // section resposible for the logo
   _logo(BuildContext context) {
-    return Icon(
-      Icons.power_settings_new_rounded,
-      size: _generalController.screenHeight(context) * 0.15,
-      color: Colors.deepPurple.shade100,
+    return Image.asset(
+      'assets/images/logoGOW.png',
+      width: _generalController.screenWidth(context) * 0.7,
     );
   }
 
@@ -110,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
           horizontal: _generalController.screenWidth(context) * 0.15),
       child: MyTextButton(
         text: 'Forgot you password?',
-        textColor: Colors.deepPurple.shade50,
+        textColor: MyDarkTheme.colorPalette.secondary,
       ),
     );
   }
@@ -120,10 +111,9 @@ class _LoginPageState extends State<LoginPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: MyButton(
-        type: 1,
         text: 'Login',
         icon: Icons.login_rounded,
-        buttonColor: Colors.deepPurple.shade600,
+        gradientColors: MyDarkTheme.secondaryGradient,
         secondColor: Colors.white,
         onTouch: () => Navigator.of(context).pushNamed(''),
       ),
