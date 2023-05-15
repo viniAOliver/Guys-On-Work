@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class MyTextButton extends StatelessWidget {
   final int? type;
   final String text;
-  final Color textColor;
+  final Color? textColor;
   final FontWeight? thicknessText;
   final Function()? click;
 
   const MyTextButton({
     super.key,
     required this.text,
-    required this.textColor,
+    this.textColor,
     this.click,
     this.type,
     this.thicknessText,

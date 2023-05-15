@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:guys_on_work/controllers/general_controller.dart';
+import 'package:guys_on_work/themes/dark_theme.dart';
 
 class MyField extends StatelessWidget {
   /// return the type of FieMyField who will be called
@@ -45,10 +46,11 @@ class MyField extends StatelessWidget {
       width: _generalController.screenWidth(context) * 0.7,
       child: DecoratedBox(
         decoration: BoxDecoration(
+          color: MyDarkTheme.colorPalette.primary,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: Colors.deepPurple.shade50,
-            width: 1,
+            color: MyDarkTheme.colorPalette.onPrimary.withOpacity(0.5),
+            width: 3,
           ),
         ),
         child: Padding(
@@ -57,16 +59,16 @@ class MyField extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             obscureText: isPassword ?? false,
-            cursorColor: Colors.deepPurple.shade900,
+            cursorColor: MyDarkTheme.colorPalette.secondary,
             keyboardType: keyboardType,
             style: TextStyle(
-              color: Colors.deepPurple.shade50,
+              color: MyDarkTheme.colorPalette.onPrimary,
             ),
             decoration: InputDecoration(
               border: const OutlineInputBorder(borderSide: BorderSide.none),
-              labelStyle: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
+              labelStyle: TextStyle(
+                color: MyDarkTheme.colorPalette.onPrimary,
+                fontWeight: FontWeight.normal,
                 fontSize: 18,
               ),
               labelText: title,
@@ -75,7 +77,7 @@ class MyField extends StatelessWidget {
               ),
               hintText: subtitle,
               hintStyle: TextStyle(
-                color: Colors.deepPurple.shade50,
+                color: MyDarkTheme.colorPalette.onPrimary,
               ),
             ),
           ),
