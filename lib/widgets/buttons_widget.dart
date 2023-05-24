@@ -36,38 +36,42 @@ class MyButton extends StatelessWidget {
 
   _standardButton(BuildContext context) {
     return SizedBox(
-        height: _generalController.screenHeight(context) * 0.06,
-        width: _generalController.screenHeight(context) * 0.15,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            gradient: gradientColors,
-            borderRadius: BorderRadius.circular(10),
+      height: _generalController.screenHeight(context) * 0.08,
+      width: _generalController.screenHeight(context) * 0.20,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: gradientColors,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: ElevatedButton.icon(
+          onPressed: () {},
+          icon: Icon(
+            icon,
+            color: secondColor,
+            size: _generalController.screenHeight(context) * 0.038,
           ),
-          child: ElevatedButton.icon(
-            onPressed: () {},
-            icon: Icon(
-              icon,
+          label: Text(
+            text,
+            style: TextStyle(
               color: secondColor,
-            ),
-            label: Text(
-              text,
-              style: TextStyle(
-                color: secondColor,
-              ),
-            ),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              alignment: Alignment.center,
+              fontSize: _generalController.screenHeight(context) * 0.022,
+              fontWeight: FontWeight.bold,
             ),
           ),
-        ));
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            alignment: Alignment.center,
+          ),
+        ),
+      ),
+    );
   }
 
   _iconButton(BuildContext context) {
     return SizedBox(
-      height: _generalController.screenHeight(context) * 0.06,
-      width: _generalController.screenHeight(context) * 0.15,
+      height: _generalController.screenHeight(context) * 0.08,
+      width: _generalController.screenHeight(context) * 0.20,
       child: ElevatedButton.icon(
         onPressed: _generalController.loading == null
             ? null
@@ -82,10 +86,15 @@ class MyButton extends StatelessWidget {
         icon: Icon(
           icon,
           color: secondColor,
+          size: _generalController.screenHeight(context) * 0.038,
         ),
         label: Text(
           text,
-          style: TextStyle(color: secondColor),
+          style: TextStyle(
+            color: secondColor,
+            fontSize: _generalController.screenHeight(context) * 0.022,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

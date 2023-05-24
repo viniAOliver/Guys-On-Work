@@ -15,7 +15,7 @@ class GeneralController extends GetxController {
     return MediaQuery.of(context).size.height;
   }
 
-  defaultSize(BuildContext context) {
-    return MediaQuery.of(context).size;
+  defaultPadding(BuildContext context) {
+    return MediaQuery.of(context).size * 0.05;
   }
 }
