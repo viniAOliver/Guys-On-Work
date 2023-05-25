@@ -21,14 +21,17 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
+          // defines the backgrond
           Image.asset(
             'assets/images/defaultBg.png',
             alignment: Alignment.center,
             fit: BoxFit.cover,
             height: _generalController.screenHeight(context),
           ),
+
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -61,7 +64,8 @@ class _LoginPageState extends State<LoginPage> {
   _logo(BuildContext context) {
     return Image.asset(
       'assets/images/logoGOW.png',
-      width: _generalController.screenWidth(context) * 0.7,
+      width: _generalController.screenWidth(context) * 0.75,
+      fit: BoxFit.scaleDown,
     );
   }
 
@@ -98,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
   _forgotPassword(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: _generalController.screenWidth(context) * 0.15),
+          horizontal: _generalController.screenWidth(context) * 0.12),
       child: MyTextButton(
         text: 'Forgot you password?',
         textColor: MyDarkTheme.colorPalette.secondary,

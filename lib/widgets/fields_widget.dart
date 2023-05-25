@@ -43,7 +43,7 @@ class MyField extends StatelessWidget {
   // field for the login
   _loginField(BuildContext context) {
     return SizedBox(
-      width: _generalController.screenWidth(context) * 0.7,
+      width: _generalController.screenWidth(context) * 0.75,
       child: DecoratedBox(
         decoration: BoxDecoration(
           color: MyDarkTheme.colorPalette.primary,
@@ -62,22 +62,24 @@ class MyField extends StatelessWidget {
             cursorColor: MyDarkTheme.colorPalette.secondary,
             keyboardType: keyboardType,
             style: TextStyle(
-              color: MyDarkTheme.colorPalette.onPrimary,
+              color: MyDarkTheme.colorPalette.onPrimary.withOpacity(0.7),
+              fontWeight: FontWeight.w700,
             ),
             decoration: InputDecoration(
               border: const OutlineInputBorder(borderSide: BorderSide.none),
+              labelText: title,
               labelStyle: TextStyle(
-                color: MyDarkTheme.colorPalette.onPrimary,
-                fontWeight: FontWeight.normal,
+                color: MyDarkTheme.colorPalette.onPrimary.withOpacity(0.6),
+                fontWeight: FontWeight.w600,
                 fontSize: 18,
               ),
-              labelText: title,
               floatingLabelStyle: const TextStyle(
                 color: Colors.transparent,
               ),
               hintText: subtitle,
               hintStyle: TextStyle(
-                color: MyDarkTheme.colorPalette.onPrimary,
+                color: MyDarkTheme.colorPalette.onPrimary.withOpacity(0.6),
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
