@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:guys_on_work/controllers/general_controller.dart';
-import 'package:guys_on_work/themes/dark_theme.dart';
+import 'package:guys_on_work/themes/main_theme.dart';
 
 class MyField extends StatelessWidget {
   /// return the type of FieMyField who will be called
@@ -46,10 +46,10 @@ class MyField extends StatelessWidget {
       width: _generalController.screenWidth(context) * 0.75,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: MyDarkTheme.colorPalette.primary,
+          color: MyTheme.colorPalette.primary,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: MyDarkTheme.colorPalette.onPrimary.withOpacity(0.5),
+            color: MyTheme.colorPalette.onPrimary.withOpacity(0.5),
             width: 3,
           ),
         ),
@@ -59,17 +59,17 @@ class MyField extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             obscureText: isPassword ?? false,
-            cursorColor: MyDarkTheme.colorPalette.secondary,
+            cursorColor: MyTheme.colorPalette.secondary,
             keyboardType: keyboardType,
             style: TextStyle(
-              color: MyDarkTheme.colorPalette.onPrimary.withOpacity(0.7),
+              color: MyTheme.colorPalette.onPrimary.withOpacity(0.7),
               fontWeight: FontWeight.w700,
             ),
             decoration: InputDecoration(
               border: const OutlineInputBorder(borderSide: BorderSide.none),
               labelText: title,
               labelStyle: TextStyle(
-                color: MyDarkTheme.colorPalette.onPrimary.withOpacity(0.6),
+                color: MyTheme.colorPalette.onPrimary.withOpacity(0.6),
                 fontWeight: FontWeight.w600,
                 fontSize: 18,
               ),
@@ -78,7 +78,7 @@ class MyField extends StatelessWidget {
               ),
               hintText: subtitle,
               hintStyle: TextStyle(
-                color: MyDarkTheme.colorPalette.onPrimary.withOpacity(0.6),
+                color: MyTheme.colorPalette.onPrimary.withOpacity(0.6),
                 fontWeight: FontWeight.w600,
               ),
             ),
