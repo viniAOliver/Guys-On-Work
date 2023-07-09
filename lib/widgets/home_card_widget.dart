@@ -9,12 +9,16 @@ class MyHomeCard extends StatelessWidget {
   /// 2 - Half Screen Card
   final int type;
   final String title;
+  final Color? colorTitle;
+  final Gradient backGradient;
   final String? pathImage;
   MyHomeCard({
     super.key,
     required this.type,
     required this.title,
     this.pathImage,
+    required this.backGradient,
+    this.colorTitle,
   });
 
   final GeneralController _generalController = Get.find<GeneralController>();
@@ -67,7 +71,7 @@ class MyHomeCard extends StatelessWidget {
                     width: _generalController.screenWidth(context) * 0.45,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        gradient: MyTheme.primaryGradient,
+                        gradient: backGradient,
                         borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(20),
                           topLeft: Radius.circular(20),
@@ -126,7 +130,8 @@ class MyHomeCard extends StatelessWidget {
                                 textAlign: TextAlign.justify,
                                 title,
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: colorTitle ??
+                                      MyTheme.colorPalette.onPrimaryContainer,
                                   fontSize:
                                       _generalController.screenWidth(context) *
                                           0.07,
@@ -158,7 +163,8 @@ class MyHomeCard extends StatelessWidget {
                             onPressed: () {},
                             icon: Icon(
                               Icons.arrow_forward_ios_rounded,
-                              color: MyTheme.colorPalette.onPrimaryContainer,
+                              color: colorTitle ??
+                                  MyTheme.colorPalette.onPrimaryContainer,
                               size: _generalController.screenWidth(context) *
                                   0.08,
                               shadows: [
@@ -218,7 +224,7 @@ class MyHomeCard extends StatelessWidget {
                   width: _generalController.screenWidth(context) * 0.92,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      gradient: MyTheme.primaryGradient,
+                      gradient: backGradient,
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
@@ -241,7 +247,8 @@ class MyHomeCard extends StatelessWidget {
                           textAlign: TextAlign.justify,
                           title,
                           style: TextStyle(
-                            color: Colors.white,
+                            color: colorTitle ??
+                                MyTheme.colorPalette.onPrimaryContainer,
                             fontSize:
                                 _generalController.screenWidth(context) * 0.07,
                             fontWeight: FontWeight.bold,
@@ -277,7 +284,9 @@ class MyHomeCard extends StatelessWidget {
                     onPressed: () {},
                     icon: Icon(
                       Icons.arrow_forward_ios_rounded,
-                      color: MyTheme.colorPalette.tertiary.withOpacity(0.8),
+                      color: colorTitle?.withOpacity(0.8) ??
+                          MyTheme.colorPalette.onPrimaryContainer
+                              .withOpacity(0.8),
                       size: _generalController.screenWidth(context) * 0.09,
                       shadows: [
                         Shadow(
@@ -318,7 +327,7 @@ class MyHomeCard extends StatelessWidget {
                 width: _generalController.screenWidth(context) * 0.5,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    gradient: MyTheme.primaryGradient,
+                    gradient: backGradient,
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       topLeft: Radius.circular(20),
@@ -350,7 +359,8 @@ class MyHomeCard extends StatelessWidget {
                             textAlign: TextAlign.end,
                             title,
                             style: TextStyle(
-                              color: Colors.white,
+                              color: colorTitle ??
+                                  MyTheme.colorPalette.onPrimaryContainer,
                               fontSize:
                                   _generalController.screenWidth(context) *
                                       0.07,
@@ -373,7 +383,8 @@ class MyHomeCard extends StatelessWidget {
                             onPressed: () {},
                             icon: Icon(
                               Icons.arrow_forward_ios_rounded,
-                              color: MyTheme.colorPalette.onPrimaryContainer,
+                              color: colorTitle ??
+                                  MyTheme.colorPalette.onPrimaryContainer,
                               size:
                                   _generalController.screenWidth(context) * 0.1,
                               shadows: [

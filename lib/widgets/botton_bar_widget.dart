@@ -7,31 +7,45 @@ class MyBottomNavigationBar extends StatelessWidget {
   MyBottomNavigationBar({super.key});
 
   final GeneralController _generalController = Get.find<GeneralController>();
+  final RxInt currentIndex = 0.obs;
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      unselectedItemColor: MyTheme.colorPalette.secondary.withOpacity(0.9),
-      selectedItemColor: MyTheme.colorPalette.tertiary,
-      unselectedFontSize: _generalController.screenHeight(context) * 0.02,
-      selectedFontSize: _generalController.screenHeight(context) * 0.015,
-      iconSize: _generalController.screenHeight(context) * 0.035,
-      type: BottomNavigationBarType.shifting,
-      backgroundColor: MyTheme.colorPalette.onPrimaryContainer,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_rounded),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.groups_rounded),
-          label: 'Team',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_rounded),
-          label: 'Profile',
-        ),
-      ],
+    return Obx(
+      () => BottomNavigationBar(
+        currentIndex: currentIndex.value,
+        onTap: (value) {
+          currentIndex.value = value;
+          if (currentIndex.value == 0) {
+            () => Navigator.of(context).pushNamed('');
+          } else if (currentIndex.value == 1) {
+            () => Navigator.of(context).pushNamed('/WelcomePage');
+          } else if (currentIndex.value == 2) {
+            () => Navigator.of(context).pushNamed('');
+          }
+        },
+        unselectedItemColor: MyTheme.colorPalette.secondary.withOpacity(0.9),
+        selectedItemColor: MyTheme.colorPalette.tertiary,
+        unselectedFontSize: _generalController.screenHeight(context) * 0.02,
+        selectedFontSize: _generalController.screenHeight(context) * 0.015,
+        iconSize: _generalController.screenHeight(context) * 0.035,
+        type: BottomNavigationBarType.shifting,
+        backgroundColor: MyTheme.colorPalette.onPrimaryContainer,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_rounded),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.groups_rounded),
+            label: 'Team',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_rounded),
+            label: 'Profile',
+          ),
+        ],
+      ),
     );
   }
 }

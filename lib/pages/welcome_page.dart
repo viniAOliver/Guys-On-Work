@@ -165,7 +165,7 @@ class _WelcomePageState extends State<WelcomePage> {
         type: 2,
         text: 'Get in',
         icon: Icons.login_rounded,
-        gradientColors: MyTheme.primaryGradient,
+        gradientColors: MyTheme.dbGradient,
         secondColor: Colors.white,
         onTouch: () => Navigator.of(context).pushNamed("/homePage"),
       ),
