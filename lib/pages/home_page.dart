@@ -1,10 +1,10 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:guys_on_work/themes/main_theme.dart';
+import 'package:guys_on_work/widgets/app_bar_widget.dart';
 import 'package:guys_on_work/widgets/botton_bar_widget.dart';
 import 'package:guys_on_work/widgets/home_card_widget.dart';
-import '../widgets/app_bar_widget.dart';
+import 'package:just_audio/just_audio.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -16,6 +16,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late AudioPlayer _homePlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    _homePlayer = AudioPlayer();
+    _playAudio();
+  }
+
+  Future<void> _playAudio() async {
+    await _homePlayer.setAsset('assets/music/dbzbt3_soundtrack.mp3');
+    await _homePlayer.setLoopMode(LoopMode.all);
+    await _homePlayer.setVolume(0.2);
+    await _homePlayer.play();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _homePlayer.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +100,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: MyBottomNavigationBar(),
+      bottomNavigationBar: MyBottomNavigationBar(audioPlayer: _homePlayer),
     );
   }
 

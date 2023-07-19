@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:guys_on_work/controllers/general_controller.dart';
+import 'package:just_audio/just_audio.dart';
 import '../themes/main_theme.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
-  MyBottomNavigationBar({super.key});
+  final AudioPlayer? audioPlayer;
+  MyBottomNavigationBar({super.key, this.audioPlayer});
 
   final GeneralController _generalController = Get.find<GeneralController>();
   final RxInt currentIndex = 0.obs;
@@ -15,13 +17,17 @@ class MyBottomNavigationBar extends StatelessWidget {
       () => BottomNavigationBar(
         currentIndex: currentIndex.value,
         onTap: (value) {
+          audioPlayer?.stop();
           currentIndex.value = value;
           if (currentIndex.value == 0) {
-            () => Navigator.of(context).pushNamed('');
+            Navigator.of(context).pushNamed('');
           } else if (currentIndex.value == 1) {
-            () => Navigator.of(context).pushNamed('/WelcomePage');
+            Navigator.of(context).pushNamed(
+              '/WelcomePage',
+              arguments: currentIndex.value,
+            );
           } else if (currentIndex.value == 2) {
-            () => Navigator.of(context).pushNamed('');
+            Navigator.of(context).pushNamed('');
           }
         },
         unselectedItemColor: MyTheme.colorPalette.secondary.withOpacity(0.9),

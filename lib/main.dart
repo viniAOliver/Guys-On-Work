@@ -8,8 +8,8 @@ import 'package:device_preview/device_preview.dart';
 
 void main() {
   // calling the controllers
-  Get.put(GeneralController());
-  Get.put(LoginController());
+  Get.lazyPut(() => GeneralController());
+  Get.lazyPut(() => LoginController());
 
   // Make sure that all widgets be load correctly
   WidgetsFlutterBinding.ensureInitialized();

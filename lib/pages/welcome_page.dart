@@ -167,6 +167,19 @@ class _WelcomePageState extends State<WelcomePage> {
         icon: Icons.login_rounded,
         gradientColors: MyTheme.dbGradient,
         secondColor: Colors.white,
+        // onTouch: () {
+        //   AnimatedContainer(
+        //     duration: const Duration(seconds: 7),
+        //     width: _generalController.screenWidth(context),
+        //     height: _generalController.screenHeight(context),
+        //     alignment: Alignment.center,
+        //     color: Colors.white,
+        //     onEnd: () => Navigator.of(context).pushNamed("/homePage"),
+        //     curve: Curves.linear,
+        //     clipBehavior: Clip.none,
+        //     transform: Matrix4.,
+        //   );
+        // },
         onTouch: () => Navigator.of(context).pushNamed("/homePage"),
       ),
     );
