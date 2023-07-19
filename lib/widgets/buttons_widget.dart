@@ -29,6 +29,8 @@ class MyButton extends StatelessWidget {
     switch (type) {
       case 1:
         return _iconButton(context);
+      case 2:
+        return _loginButton(context);
       default:
         return _standardButton(context);
     }
@@ -44,7 +46,41 @@ class MyButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: _generalController.loading == null ? null : onTouch,
+          icon: Icon(
+            icon,
+            color: secondColor,
+            size: _generalController.screenHeight(context) * 0.038,
+          ),
+          label: Text(
+            text,
+            style: TextStyle(
+              color: secondColor,
+              fontSize: _generalController.screenHeight(context) * 0.022,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            alignment: Alignment.center,
+          ),
+        ),
+      ),
+    );
+  }
+
+  _loginButton(BuildContext context) {
+    return SizedBox(
+      height: _generalController.screenHeight(context) * 0.07,
+      width: _generalController.screenWidth(context) * 0.70,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: gradientColors,
+          borderRadius: BorderRadius.circular(45),
+        ),
+        child: ElevatedButton.icon(
+          onPressed: _generalController.loading == null ? null : onTouch,
           icon: Icon(
             icon,
             color: secondColor,
@@ -73,11 +109,7 @@ class MyButton extends StatelessWidget {
       height: _generalController.screenHeight(context) * 0.08,
       width: _generalController.screenHeight(context) * 0.20,
       child: ElevatedButton.icon(
-        onPressed: _generalController.loading == null
-            ? null
-            : () {
-                onTouch;
-              },
+        onPressed: _generalController.loading == null ? null : onTouch,
         style: ElevatedButton.styleFrom(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
