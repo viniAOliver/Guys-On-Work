@@ -1,4 +1,4 @@
-# Guys On Work
+# [![Typing SVG](https://readme-typing-svg.demolab.com?font=Pixelify+Sans&weight=500&size=42&pause=1000&color=7F03BB&width=435&lines=Guys+on+Work;Mobile+Frontend)](https://git.io/typing-svg)
 
 <p align="center">
   <a href="https://github.com/viniAOliver/Guys-On-Work">
