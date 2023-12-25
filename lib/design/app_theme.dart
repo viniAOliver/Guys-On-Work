@@ -7,6 +7,16 @@ class AppTheme {
   static const Color tertiaryColor = Color(0xFFFAFBFC);
   static const Color quaternaryColor = Color(0xFF2B3137);
   static const Color errorColor = Color(0xFFD84339);
+  static const Color successColor = Color(0xFF4CAF50);
+  static const Color warningColor = Color(0xFFFFC107);
+  static const Color transparentColor = Colors.transparent;
+
+  // Setting static gradients variables to be used in the application.
+  static const LinearGradient primaryGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: <Color>[primaryColor, quaternaryColor],
+  );
 
   /// Sets the dark theme of the application.
   static final ThemeData darkTheme = ThemeData(
@@ -34,13 +44,13 @@ class AppTheme {
       titleLarge: TextStyle(
         color: tertiaryColor,
         fontFamily: 'Sora',
-        fontSize: 24,
+        fontSize: 32,
         fontWeight: FontWeight.bold,
       ),
       titleMedium: TextStyle(
         color: tertiaryColor,
         fontFamily: 'Sora',
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: FontWeight.w500,
       ),
       titleSmall: TextStyle(
