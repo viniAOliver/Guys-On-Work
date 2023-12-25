@@ -13,6 +13,8 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   get: ^4.6.6
+  lottie: ^2.7.0
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -26,6 +28,7 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/
+    - assets/images/animations/
     - assets/music/
     - assets/videos/
 
