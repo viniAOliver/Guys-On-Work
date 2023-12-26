@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:guys_on_work/modules/initial_pages/initial_pages_routes.dart';
+import 'package:guys_on_work/modules/initial_pages/utils/initial_pages_routes.dart';
 
 class MainRoutes {
   /// Constructor that adds the routes of the application.
