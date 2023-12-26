@@ -16,10 +16,13 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# # Flutter fvm
+# Flutter fvm
 .fvm/
 
-# # Metadatas
+# Visual Studio Code related
+.vscode/
+
+# Metadatas
 .metadata
 
 # The .vscode folder contains launch configuration and tasks you configure in
