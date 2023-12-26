@@ -222,6 +222,21 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           ),
         ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: Align(
+        alignment: const Alignment(1, -0.95),
+        child: FloatingActionButton(
+          backgroundColor: AppTheme.transparentColor,
+          elevation: 0,
+          shape: const CircleBorder(),
+          onPressed: () {},
+          child: const Icon(
+            Icons.help_outline_rounded,
+            color: AppTheme.secondaryColor,
+            size: 30,
+          ),
+        ),
+      ),
     );
   }
 }
