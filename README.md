@@ -1,16 +1,24 @@
 # [![Typing SVG](https://readme-typing-svg.demolab.com?font=Pixelify+Sans&weight=500&size=42&pause=1000&color=7F03BB&width=435&lines=Guys+on+Work;Mobile+Frontend)](https://git.io/typing-svg)
 
+
+
 <p align="center">
   <a href="https://github.com/viniAOliver/Guys-On-Work">
     <img src="assets/images/readme_images/repository_banner.png" alt="Guys On Work Banner">
   </a>
 </p>
 
+
+
+
+
+
 <p align="center">
   <img alt="Build Status" src="https://travis-ci.org/viniAOliver/Guys-On-Work.svg?branch=master">
   <img alt="Versão" src="https://img.shields.io/badge/version-1.0.0-blue.svg">
   <img alt="Licença" src="https://img.shields.io/badge/license-MIT-green.svg">
 </p>
+
 
 <text>
 Bem-vindo ao Guys On Work, um aplicativo Flutter projetado para facilitar a organização de funções em equipe em um projeto.
